@@ -54,6 +54,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/Auth-demo')
 ...
 app.use(session({ secret: 'this is no longer a secrete', resave: false, saveUninitialized: false }))
 
+Auth-demo -> db name
+users -> collection
+
 
 ## Running the App
 
