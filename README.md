@@ -50,24 +50,10 @@ A simple Express.js authentication demo using MongoDB, Mongoose, bcrypt for pass
 
 ## Configuration
 
-Create a `.env` file in the project root (you can use `dotenv`) or simply adjust the connection string and session secret directly in `app.js`:
+mongoose.connect('mongodb://127.0.0.1:27017/Auth-demo')
+...
+app.use(session({ secret: 'this is no longer a secrete', resave: false, saveUninitialized: false }))
 
-```bash
-MONGODB_URI="mongodb://127.0.0.1:27017/Auth-demo"
-SESSION_SECRET="your_very_secret_string"
-PORT=3333
-```
-
-If you use a `.env`, be sure to install dotenv:
-```bash
-npm install dotenv
-```
-And add at the top of `app.js`:
-```js
-require('dotenv').config();
-```
-
----
 
 ## Running the App
 
