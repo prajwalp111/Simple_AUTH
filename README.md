@@ -50,13 +50,29 @@ A simple Express.js authentication demo using MongoDB, Mongoose, bcrypt for pass
 
 ## Configuration
 
+In the `app.js` file, the database connection and session setup are done as shown below:
+
+```js
 mongoose.connect('mongodb://127.0.0.1:27017/Auth-demo')
-...
-app.use(session({ secret: 'this is no longer a secrete', resave: false, saveUninitialized: false }))
+    .then(() => {
+        console.log('database connected successfully')
+    })
+    .catch((err) => {
+        console.log(`couldn't connect to db`)
+        console.log(err)
+    });
 
-Auth-demo -> db name
-users -> collection
+app.use(session({
+    secret: 'this is no longer a secrete',
+    resave: false,
+    saveUninitialized: false
+}));
+```
 
+- `Auth-demo` is the name of the **MongoDB database**.
+- `users` is the name of the **collection** used by the `User` model.
+
+---
 
 ## Running the App
 
